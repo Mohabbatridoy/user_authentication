@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 {% extends 'login_app/base.html' %}
 {% block content %}
-<h1 class="alert alert-success">{{ headings }}</h1>
+{% if user.is_authenticated %}
+    <p>Hi, {{user_basic_info.username}}</p>
+    <p>Your Email: {{user_basic_info.email}}</p>
+    <a href="{{user_more_info.facebook_id}}">Facebook</a><br>
+    <!-- <img src="{{user_more.info.profile_pic.url}}" alt="profile_pic" width="200px"> -->
+     <!-- <p>Profile pic: {{ user_more_info.profile_pic.url}}</p> -->
+     <img src="{{ user_more_info.profile_pic.url }}" alt="Profile Picture">
+
+{% else %}
+    <h1 class="alert alert-primary ">You have to LogIn to see you Infomations</h1>
+{% endif %}
 {% endblock %}

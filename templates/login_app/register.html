@@ -4,16 +4,10 @@
 {% if registered %}
 <h1 class="alert alert-success">Registered Successfull</h1>
 {% else %}
-<form action="" method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ user_form.as_p }}
     {{ user_info_form.as_p }}
-    <!-- <p>User Name: {{ user_form.username }}</p>
-    <p>Password: {{ user_form.password }}</p>
-    <p>Email: {{ user_form.email }}</p>
-    <p>Facebook: {{user_info_form.facebook_id}}</p>
-    <p>Profile pic: {{user_info_form.profile_pic}}</p> -->
-
     <input type="submit" name="submit" value="Register" class="btn btn-primary">
 </form>
 {% endif %}

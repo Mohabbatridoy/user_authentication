@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 {% extends 'login_app/base.html' %}
 {% block content %}
-<form action="" method="POST">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
+<h1>Log in to the Website:</h1>
+<form method="POST" action="{% url 'Login_app:user_login' %}">
+    {% csrf_token %}
+    <label for="username" >Username:</label>
+    <input type="text" name="username" id="username" placeholder="Enter your username" required class="form-control"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" placeholder="Enter your password" required class="form-control"><br>
+    <input type="submit" name="submit" class="btn btn-success" value="Log In">
 </form>
 {% endblock %}

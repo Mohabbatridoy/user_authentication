@@ -7,7 +7,7 @@ class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     facebook_id = models.URLField()
-    profile_pic = models.ImageField(upload_to="profile_pics" , null=True, blank=True)
+    profile_pic = models.ImageField(upload_to="profile_pics/")
 
     def __str__(self):
         return self.user.username
